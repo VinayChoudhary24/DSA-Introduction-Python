@@ -1,0 +1,72 @@
+## If Condition 
+
+if 10 > 2:
+    print("we are inside if condition.")
+    print("This is If block with multiple statements.")
+print("if Block ends.")
+
+we are inside if condition.
+This is If block with multiple statements.
+if Block ends.
+
+
+## if-else Condition
+if 10 < 2:
+    print("we are inside if condition.")
+    print("This is If block with multiple statements.")
+else:
+    print("This is else block")
+    print("Else with Multiple Lines")
+
+This is else block
+Else with Multiple Lines
+
+
+##Check number is even or odd
+x = int(input())
+if x % 2 == 0:
+    print("This is Even Number")
+else:
+    print("This is odd Number")
+
+
+## Elif Condition
+marks = int(input())
+if marks >= 90 and marks <= 100:
+    print("This is If Condition")
+elif marks >= 80 and marks <= 89:
+    print("This is First Elif Condition")
+elif marks >= 50 and marks <= 79:
+    print("This is Second Elif Condition")
+else:
+    print("This is Else Condition")
+
+## Nested if Condition
+marks = int(input())
+if marks >= 90 and marks <= 100:
+    print("This is If Condition")
+    if marks == 100:
+        print("Full Marks")
+elif marks >= 80 and marks <= 89:
+    print("This is First Elif Condition")
+elif marks >= 50 and marks <= 79:
+    print("This is Second Elif Condition")
+else:
+    print("This is Else Condition")
+
+
+## Ternary Operator
+print("This is Ternary if Block") if 10 < 2 else print("This is Ternary Else Block")
+
+
+## Swith/Match Condition
+x = 10
+match x:
+    case 1: 
+        print("This is Case one")
+    case 2:
+        print("This is Case two")
+    case _:
+        print("This is Case default")
+
+

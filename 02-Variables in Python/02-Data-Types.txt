@@ -1,0 +1,8 @@
+## PRIMITIVE- does not depend on any other data type
+String, Numbers, Boolean, Floating, Complex Numbers(3+8j)
+
+complex_number = 3 + 8j
+print(type(complex_number))
+<class 'complex'>
+
+## NON-PRIITIVE- they depend on other data types

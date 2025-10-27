@@ -1,0 +1,9 @@
+## Some laguages uses both compilers and interpreters. they combine the features of both to bring the best results.
+
+## Python, JavaScript, Java etc.
+
+## First the compiler converts the Python code into intermediate code (Bytecode) with file extension .pyc . than this Bytecode file is interprted and final execution is done for code.
+
+## PVM - Python virtual machine takes the bytecode.pyc file and interprets line-by-line to execution.
+
+## Python achieves platform independence by providing a PVM. PVM is responsible for making sure that the interpreted Bytecode.pyc file runs on all platforms i.e Windows, Linux etc.

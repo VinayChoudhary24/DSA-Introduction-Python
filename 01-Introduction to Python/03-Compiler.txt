@@ -1,0 +1,7 @@
+## TRANSALATORS - They take the the code and translate into machine binary.
+
+## Compiler - is one of the translators. it compiles and gives us the final executable setup file. .exe .apk etc
+
+## Reads the whole file at once and gives final setup, if there are erros will call out all the errors at once.
+
+## if there is any error in the file it will not execute any single line. 

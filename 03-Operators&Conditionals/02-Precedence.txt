@@ -1,0 +1,37 @@
+   Precedence  Operators    Description      Associativity 
+       1.          **      Exponentiation         Right
+       
+       2.       ~, +, -    Bitwise NOT, Plus
+                            and Minus             Right
+       
+       3.       *,/,//,%    Mutiply, Division,
+                            floor division and 
+                                Modulus            Left
+       
+       4.         +, -      Addition and 
+                             Subtraction           left
+       
+       5.        >>, <<     Bitwise right and 
+                              left Shift           left
+       
+       6.          &        Nitwise AND            left
+       
+       7.          ^        Bitwise XOR            Left
+       
+       8.          |        Bitwise OR             Left
+       
+       9.       ==, !=, >,
+                <, >=, <=   Comparision and 
+                             Equality              Left
+       
+       10.        not      Logical NOT             Right
+       
+       11.        and      logical AND             Left
+       
+       12.         or      Logical OR              Left
+       
+       13.         =       Assignment
+                            Operator               Right
+       
+       14.         :=      Walrus 
+                           Operator                Right

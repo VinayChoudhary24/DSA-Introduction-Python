@@ -1,0 +1,17 @@
+# Variables are stored in Memory(RAM).
+
+name = "Vinay"
+age = 30
+
+print(name, age)
+
+x, y, z = "Vinay", 30, "Udaipur"
+print(x,y,z)
+
+
+##Rules of Variables
+1. Never start with a Number. 12name
+2. valid- A-Z, a-z. _, 0-9
+
+##Reserve Keywords 
+for, in 

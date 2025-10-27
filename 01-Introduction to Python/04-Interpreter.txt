@@ -1,0 +1,7 @@
+## Another translator like compiler.
+
+## it is used by Bash.
+
+## does not reads whole file at once. it reads line-by-line. if there is any error on a line it stops the execution and throws an error.
+
+## if there is any error in the file it will execute the code of lines which are abvove the error and stops execution at error.

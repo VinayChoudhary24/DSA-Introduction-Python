@@ -1,0 +1,11 @@
+## Low level Language - requires less steps to be converted for final machine level computer understanding.
+-- Faster
+-- Not readable Syntax
+-- less producctivity because of syntax
+-- C, C++, assembly 
+
+## High level Language - requires more steps to be converted for final machine level computer understanding.
+-- Slower
+-- Readable syntax
+-- more productivity because of syntax
+-- Python, Ruby, Java

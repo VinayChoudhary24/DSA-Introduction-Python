@@ -1,0 +1,91 @@
+## Binary, octal, Decimal and hexaDecimal.
+
+## They all have one thing in common -- Symbols
+
+## Decimal - it has 10 Symbols- 0,1,2,3,4,5,6,7,8,9
+## Binary - we have 2 Symbols - 1,0
+
+#All the Odd Numbers Ends with 1
+#All the Even numbers ends with 0
+
+0 zero
+1 one
+10 two
+11 three
+100 four
+101 five
+110 six
+111 seven
+1000 eight
+1001 nine
+1010 ten
+1011 eleven
+1100 twelve
+1101 thirteen
+1110 fourteen
+1111 15
+10000 16
+10001 17
+10010 18
+10011 19
+10100 20
+10101 21
+10110 22
+10111 23
+11000 24
+11001 25
+11010 26
+11011 27
+11100 28
+11101 29
+11110 30
+11111 31
+100000 32
+100001 33
+100010 34
+100011 35
+100100 36
+100101 37
+100110 38
+100111 39
+101000 40
+101001 41
+101010 42
+101011 43
+101100 44
+101101 45
+101110 46
+101111 47
+110000 48
+110001 49
+110010 50
+110011 51
+
+## Decimal to Binary Conversion
+Rule- Check if number is Even or odd
+Rule- Divide the number by 2
+2- 10   6- 110
+4- 100  3- 11
+8- 1000
+
+1. Find the binary for 18
+rule- it is even number so it ends with 0 - ------0
+rule- divide by 2 we get 9. now nine is odd number so ends with 1 - -----10
+rule- divide 9 by 2 we get 4.5 i.e 4. it is even number so ends with 0 - ----010
+rule divide 4 by 2 we get 2. we write 2 in binary as 10 so- 10010
+
+
+##Binary to Decimal Number 
+rule- we take the last number(right-to-left) and multiply it with 2 exponential starting from 0.
+rule keep adding them together 
+
+1. find decimal for 11101
+rule- last number is 1, 1x2 to the power 0. 1 
+rule- second last is 0, 0x2 to the power 1. 0
+rule- nubmer is 1, 1x2 to the power 2. 4
+rule- number is 1, 1x2 to the power 3. 8
+rule- number is 1, 1x2 to the power 4. 16
+
+Now we add all the numbers 2+0+4+8+16 = 29.
+
+  

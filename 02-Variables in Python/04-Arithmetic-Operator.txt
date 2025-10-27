@@ -1,0 +1,73 @@
+# Operators like Add, subtract, multiply, divide, floor divide, modulo, exponent
+
+1.
+x = 10
+y = 8
+
+print(x+y)
+
+2. 
+x = 10
+y = 8
+
+print(x-y)
+
+3. 
+x = 10
+y = 8
+
+print(x*y)
+
+4. 
+x = 10
+y = 8
+
+print(x+y)
+
+5. for divide there are 2 operators in Python (/) (//)
+x = 10
+y = 8
+print(x/y)=1.25
+
+x = 10
+y = 8
+print(x//y)= 1 --is Called as Floor division i.e 2.5 is 2, 1.25 is 1, 4.6 is 4. 
+
+
+
+6. calculate remainder modulo(%)
+x = 10
+y = 8
+print(x%y)=2
+
+7. exponent(**)
+2 to the power 3-- 2**3 = 8
+print(2**4)
+16
+
+## AVERAGE
+'''
+This is 
+a Multi-line 
+Comment for description.
+'''
+x= 4
+y = 7
+print(x+y)
+average = x+y / 2
+print(average)
+
+#Take Input and Calculate Average of three 
+x = int(input())
+y = int(input())
+z = int(input())
+
+average = (x+y+z) / 3
+print(average)
+
+#Example
+cookies = int(input())
+friends = int(input())
+
+friend = cookies // friends
+print(friend)

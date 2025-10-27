@@ -1,0 +1,69 @@
+## Type Conversion
+-- There are 2 types of conversion, 
+*explicit:- manual conversion done by the developer
+
+*implicit:- conversions done by Python itself
+result = 8 + 2.5
+print(result)
+print(type(result))
+
+10.5
+<class 'float'>
+
+#####################################
+1. convert to number- int(value)
+
+print("Collecting user mmo	bile")
+user_mobile = int(input())
+print("user-mobile", user_mobile)
+
+
+2. convert to floating- float(value)
+discount = float(input())
+print(discount)
+print(type(discount))
+
+ 24.4
+24.4
+<class 'float'>
+
+3. convert to Boolean- bool(value)
+
+4. convert to String- str(value)
+
+##Integer-Boolen:: Only 0(Zero) is false any other Positive or Negative value is true 
+x = bool(4)
+print(x)
+true
+
+x = bool(-4)
+print(x)
+
+x = bool(0)
+print(x)
+false
+
+
+##Float-Boolean:: same as Above
+x = bool(4.3)
+print(x)
+true
+
+x = bool(-4.3)
+print(x)
+true
+
+##String-Boolean:: Only Empty string is false, other than that(spaces, text etc) all is true. 
+x = bool("false")
+print(x)
+true
+
+x = bool("   ")
+print(x)
+true
+
+x = bool("")
+print(x)
+false
+
+

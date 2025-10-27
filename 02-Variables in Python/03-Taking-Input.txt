@@ -1,0 +1,32 @@
+# We can also colloect values-- input always returns string 
+
+print("Collecting user mobile")
+user_mobile = input()
+print("user-mobile", user_mobile)
+
+Collecting user mobile
+ 9413221527
+user-mobile 9413221527
+
+
+## Type Conversion
+1. convert to number- int(value)
+
+print("Collecting user mmo	bile")
+user_mobile = int(input())
+print("user-mobile", user_mobile)
+
+
+2. convert to floating- float(value)
+discount = float(input())
+print(discount)
+print(type(discount))
+
+ 24.4
+24.4
+<class 'float'>
+
+3. convert to Boolean- bool(value)
+
+4. convert to String- str(value)
+
