@@ -1,0 +1,324 @@
+## Problem statement
+Question: Given a number N, print sum of all even numbers from 1 to N.
+
+Answer one: Using Range
+N = int(input())
+
+even_sum = 0
+
+# Loop through numbers from 1 to N
+for i in range(1, N + 1):
+    if i % 2 == 0:
+        even_sum += i
+
+# Print the sum of even numbers
+print(even_sum)
+
+Answer two: Using while Loop
+N = int(input())
+
+# Initialize variables
+i = 1
+even_sum = 0
+
+while i <= N:
+     if i % 2 == 0:
+        even_sum += i
+     i += 1
+
+print(even_sum)
+
+
+##Break, Continue and Pass
+
+#Example 
+num = 1
+
+while (num <= 10):
+      if num == 10:
+      print("This is Pass")
+      pass # To be Replaced with Logic later
+      if num == 24:
+      break # Going Out of the while Loop
+      if num % 2 != 0:
+         n += 1
+         continue # Going to the While loop Again
+      
+      print(num)
+      n += 1
+
+## Problem Statement
+Question: print Individual numbers in Reverse order 
+
+Answer: if we done have range values clear we prefer while loop. 
+
+N = int(input())
+while N > 0: 
+    rem = N % 10 # it Gives us the last digit
+    print(rem, end=" ")
+    N //= 10 # It eliminates the last digit
+
+
+Problem statement
+Question: Write a program to generate the reverse of a given number N. Print the corresponding reverse number.
+
+Note : If a number has trailing zeros, then its reverse will not include them. For e.g., reverse of 10400 will 
+be 401 instead of 00401.
+
+Answer: 
+n = int(input())
+reverse = 0
+while n > 0:
+    rem = n % 10
+    reverse = reverse * 10 + rem  # Build the reversed number
+    n //= 10
+print(reverse)
+
+
+## Fibonacci Series 
+Question: Print the series in Fibonacci i.e take the input from user to print how many fib. numbers
+
+Answer:  
+n = int(input())
+
+second_last_num = 0
+last_num = 1
+
+print(second_last_num)
+print(last_num)
+
+count = 2 # how many fib numbers we want i.e n
+
+while count <= n:
+    next_fib = last_num + second_last_num
+    print(next_fib)
+    second_last_num = last_num
+    last_num = next_fib
+
+    count += 1
+
+## Fibonacci Series 
+Question: Print the Last Number(nth) in series for Fibonacci i.e take the input from user to print last number
+
+Answer: 
+n = int(input())
+
+second_last_num = 0
+last_num = 1
+
+if n == 1:
+    print(second_last_num)
+elif n == 2:
+    print(last_num)
+else:
+    count = 3
+    while count <= n:
+        next_fib = last_num + second_last_num
+        second_last_num = last_num
+        last_num = next_fib
+        count += 1
+    print(last_num)
+
+
+##Decimal to Binary
+Question: Convert a given (n) number into Binary
+
+Answer: 
+n = int(input())
+ans = ""
+
+while n > 0:
+    if n % 2 == 0:
+        #Even
+        ans = "0" + ans
+    else:
+        #Odd
+        ans = "1" + ans
+    n //= 2
+print(ans)
+
+Answer2: Handle the Zero(0) Value
+n = int(input())
+ans = ""
+
+if n == 0:
+    print("0")
+else:
+    while n > 0:
+        if n % 2 == 0:
+            #Even
+            ans = "0" + ans
+        else:
+           #Odd
+           ans = "1" + ans
+        n //= 2
+    print(ans)
+
+
+##Binary to decimal
+Question: Convert the give binary to decimal
+
+Ans:
+n = int(input())
+
+ans = 0 
+power_of_2 = 1 # 2 raise to the power 0
+while n > 0:
+    last_digit = n % 10 # remainder
+    ans += last_digit * power_of_2
+
+    power_of_2 *= 2
+    n //= 10 #eliminate the last digit
+    
+print(ans)
+
+##print the Table 
+for value in range(1, 21):
+    for i in range(1, 11):
+        print(value*i, end=" ")
+    print()
+
+## Print the Table using While Loop
+value = 1
+while value <= 20:
+    i = 1
+    while i <= 10:
+        print(value * i, end=" ")
+        i += 1
+    value += 1
+    print()
+
+Problem statement
+Question: Write a Python program that generates multiplication tables for numbers from 1 to a given integer N.
+
+Answer:
+n = int(input())
+for value in range(1, n + 1):
+    for i in range(1, 11):
+        print(value*i, end=" ")
+    print()
+
+###Problem statement
+Write a program that asks the user for a number N and a choice C. And then give them the possibility to choose between computing the sum and computing the product of all integers in the range 1 to N (both inclusive).
+
+
+If C is equal to -
+ 1, then print the sum
+ 2, then print the product
+ Any other number, then print '-1' (without the quotes)
+
+Answer:
+n = int(input())
+c = int(input())
+
+#check user choice
+if c == 1:
+    total = 0
+    for i in range(1, n + 1):
+        total += i
+    print(total)
+elif c == 2:
+    product = 1
+    for i in range(1, n + 1):
+        product *= i
+    print(product)
+else:
+    print(-1)
+
+###Problem statement
+Write a program to find x to the power n (i.e. x^n). Take x and n from the user. You need to print the answer.
+
+Note :
+For this question, you can assume that 0 raised to the power of 0 is 1
+
+Answer:
+x, n = input().split()
+x =int(x)
+n= int(n)
+# write your code logic and no need to take input !
+# Handle 0^0 as 1 (as per note)
+if x == 0 and n == 0:
+    print(1)
+else:
+    result = 1
+    for i in range(n):
+        result *= x
+    print(result)
+
+
+##Problem statement
+Write a program to print the first x terms of the mathematical series 3N + 2 which are not multiples of 4.
+
+The series is defined as:
+
+T(N) = 3N + 2, where N is a positive integer starting from 1. Your task is to print the first x terms of this series, but you should exclude any term that is a multiple of 4.
+
+Answer:
+# Take input from the user
+x = int(input())
+
+count = 0   # how many valid terms we've printed
+n = 1       # starting value of N
+
+while count < x:
+    term = 3 * n + 2
+    if term % 4 != 0:
+        # Skip multiple of 4
+        print(term, end=" ")
+        count += 1
+    n += 1
+
+
+##Problem statement
+Given three values - Start Fahrenheit Value (S), End Fahrenheit value (E) and Step Size (W), you need to convert all Fahrenheit values from Start to End at the gap of W, into their corresponding Celsius values and print the table.
+
+Hint : Use type casting
+
+Answer:
+S = int(input())
+E = int(input())
+W = int(input())
+
+while S <= E:
+    celsius = int((S - 32) * 5 / 9) # Type Casting
+    print(f"{S}\t{celsius}")
+    S += W
+
+
+## Example-- Check if Number is prime or Composite
+N = int(input())
+isPrime = True
+i = 2
+
+while i <= N - 1:
+    if N % i == 0:
+        #This is Composite Number
+        isprime = False
+        break
+    i += 1
+if isPrime:
+    print("This is Prime number")
+else:
+    print("This is Composite number")
+print("While Loop ends")
+
+
+##Problem statement
+Given an integer N, print all the prime numbers that lie in the range 2 to N (both inclusive).
+
+Print the prime numbers in different lines.
+
+Answer:
+n = int(input())
+
+for num in range(2, n + 1):
+    isPrime = True
+    # Check if num is divisible by any smaller number
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            isPrime = False
+            break
+    if isPrime:
+        print(num)
+
+

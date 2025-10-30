@@ -1,0 +1,723 @@
+## 
+N, is the number of pattern
+i, is the number of rows
+j, is the number of columns
+We need to clear what is to be printed i.e *, number etc..
+##
+
+###Question
+Print This
+****
+****
+****
+****
+
+Answer: 
+n = int(input()) 
+i = 1 # Rows
+#First Loop is for printing rows
+while i <= n:
+    j = 1 #Columns
+    #Second Loop is for printing columns
+    while j <= n:
+        print("*", end=" ")
+        j += 1
+    print()
+    i += 1
+
+
+###Question
+Problem statement
+Print the following pattern for the given N number of rows.
+
+Pattern for N = 4
+4444
+4444
+4444
+4444
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= n:
+        print(str(n), end="")
+        j += 1
+    print()
+    i += 1
+
+###Question
+Print This
+1111
+2222
+3333
+4444
+here i = 4 and j = 4 and all the rows are same so we need to print i
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= n:
+        print(i, end="")
+        j += 1
+    print()
+    i += 1
+
+###Question
+Print This
+1234
+1234
+1234
+1234
+here i = 4 and j = 4 and all the rows have same Columns so we need to print j
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= n:
+        print(j, end="")
+        j += 1
+    print()
+    i += 1
+
+###Question
+"""
+Print This
+4321
+4321
+4321
+4321
+here i = 4 and j = 4 and all the rows starts with n and when j increases the value decreases by 1, so we need tp print n - j + 1
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= n:
+        print(n - j + 1, end="")
+        j += 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Print This
+1
+12
+123
+1234
+here i = 4 i.e first row has 1 column second has 2 etc..,and all the rows we need to print column i.e j
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= i:
+        print(j, end="")
+        j += 1
+    print()
+    i += 1
+
+###Question
+"""
+Print This
+1
+23
+345
+4567
+here i = 4, each rows starts with i and increments by 1
+"""
+
+Answer One:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    p = i
+    #Second Loop is for printing columns
+    while j <= i:
+        print(p, end="")
+        j += 1
+        p += 1
+    print()
+    i += 1
+
+Answer Two Using Formula:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= i:
+        print(i + j - 1, end="")
+        j += 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Print This
+1
+23
+456
+78910
+here i = 4, the first row starts with 1 and it keeps on incrementing by 1 i.e first row-one column, second row-two columns etc.
+"""
+
+Answer: 
+n = int(input())
+i = 1
+p = 1 # we print this value and increment it
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= i:
+        print(p, end="")
+        j += 1
+        p += 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Problem statement
+Print the following pattern for the given N number of rows.
+
+Pattern for N = 4
+1
+22
+333
+4444
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= i:
+        print(i, end="")
+        j += 1
+    print()
+    i += 1
+
+
+
+###Question
+"""
+Problem statement
+Print the following pattern for the given N number of rows.
+
+ABCD
+ABCD
+ABCD
+ABCD
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= n:
+        # ord method, Gives the Ascii value of Character
+        # chr method, gives the character of the ascii value
+        characterToPrint = chr(ord("A") + j - 1)
+        print(characterToPrint, end="")
+        j += 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Problem statement
+Print the following pattern for the given N number of rows.
+
+ABCD
+BCDE
+CDEF
+DEFG
+Here, not every row starts with A
+"""
+
+Answer One: better in terms of algorithmic efficiency and performance
+n = int(input())
+i = 1
+c = ord("A")
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= n:
+        # ord method, Gives the Ascii value of Character
+        # chr method, gives the character of the ascii value
+        characterToPrint = chr(c + j - 1)
+        print(characterToPrint, end="")
+        j += 1
+    print()
+    i += 1
+    c += 1
+
+Answer Two:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    c = chr(ord("A") + i - 1)
+    #Second Loop is for printing columns
+    while j <= n:
+        # ord method, Gives the Ascii value of Character
+        # chr method, gives the character of the ascii value
+        characterToPrint = chr(ord(c) + j - 1)
+        print(characterToPrint, end="")
+        j += 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Problem statement
+Print the following pattern for the given N number of rows.
+
+Pattern for N = 3
+ A
+ BB
+ CCC
+"""
+
+Answer:
+n = int(input())
+i = 1
+c = ord("A")
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= i:
+        # ord method, Gives the Ascii value of Character
+        # chr method, gives the character of the ascii value
+        characterToPrint = chr(c)
+        print(characterToPrint, end="")
+        j += 1
+    print()
+    i += 1
+    c += 1
+
+
+###Question
+"""
+Problem statement
+Inverted Triangle
+
+****
+***
+**
+*
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= n - i + 1:
+        print("*", end="")
+        j += 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Problem statement
+Inverted Triangle
+
+1234
+123
+12
+1
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    p = 1
+    #Second Loop is for printing columns
+    while j <= n - i + 1:
+        print(p, end="")
+        j += 1
+        p += 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Print the following pattern for the given N number of rows.
+
+Pattern for N = 4
+4444
+333
+22
+1
+"""
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    #Second Loop is for printing columns
+    while j <= n - i + 1:
+        print(n - i + 1, end="")
+        j += 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Mirror Patterns with Spaces
+Pattern for N = 4
+   *
+  **
+ ***
+****
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    spaces = 1
+    #Second Loop is for printing Spaces
+    while spaces <= n - i:
+        print(" ", end="")
+        spaces += 1
+    stars = 1
+    #Third Loop is for printing Stars
+    while stars <= i:
+        print("*", end="")
+        stars += 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Print the following pattern for the given N number of rows.
+
+Pattern for N = 4
+   1
+  12
+ 123
+1234
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    spaces = 1
+    #Second Loop is for printing Spaces
+    while spaces <= n - i:
+        print(" ", end="")
+        spaces += 1
+    j = 1
+    #Third Loop is for printing numbers
+    while j <= i:
+        print(j, end="")
+        j += 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Print the Isoceles Pattern
+
+Pattern for N = 4
+   1
+  121
+ 12321
+1234321
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    spaces = 1
+    #Second Loop is for printing Spaces
+    while spaces <= n - i:
+        print(" ", end="")
+        spaces += 1
+    j = 1
+    p = 1 # for decreasing sequence
+    #Third Loop is for printing numbers
+    while j <= i:
+        print(p, end="")
+        j += 1
+        p += 1
+    # Fourth loop for decreasing sequence
+    p = i - 1
+    while p >= 1:
+        print(p, end="")
+        p -= 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Print the Isoceles Pattern Or Triangle of Numbers
+
+   1
+  232
+ 34543
+4567654
+The dots represent spaces.
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    spaces = 1
+    #Second Loop is for printing Spaces
+    while spaces <= n - i:
+        print(" ", end="")
+        spaces += 1
+    j = 1
+    p = i
+    #Third Loop is for printing numbers
+    while j <= i:
+        print(p, end="")
+        j += 1
+        p += 1
+    # Fourth loop for decreasing sequence
+    p = 2 * i - 2
+    while p >= i:
+        print(p, end="")
+        p -= 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Print the following pattern for the given N number of rows.
+
+Pattern for N = 4
+1
+21
+321
+4321
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    p = i
+    #Second Loop is for printing columns
+    while j <= i:
+        print(p, end="")
+        j += 1
+        p -= 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Print the following pattern for the given N number of rows.
+
+Pattern for N = 4
+A
+BC
+CDE
+DEFG
+"""
+
+Answer:
+n = int(input())
+i = 1
+c = ord("A")
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    inner_chr = c
+    #Second Loop is for printing columns
+    while j <= i:
+        # ord method, Gives the Ascii value of Character
+        # chr method, gives the character of the ascii value
+        characterToPrint = chr(inner_chr)
+        print(characterToPrint, end="")
+        j += 1
+        inner_chr += 1
+    print()
+    i += 1
+    c += 1
+
+
+###Question
+"""
+Print the following pattern for the given number of rows.
+
+Pattern for N = 5
+E
+DE
+CDE
+BCDE
+ABCDE
+"""
+
+Answer:
+n = int(input())
+i = 1
+c = ord("A") + n - 1
+#First Loop is for printing rows
+while i <= n:
+    j = 1
+    inner_chr = c
+    #Second Loop is for printing columns
+    while j <= i:
+        # ord method, Gives the Ascii value of Character
+        # chr method, gives the character of the ascii value
+        characterToPrint = chr(inner_chr)
+        print(characterToPrint, end="")
+        j += 1
+        inner_chr += 1
+    print()
+    i += 1
+    c -= 1
+
+
+###Question
+"""
+Print the Isoceles Pattern
+
+Pattern for N = 4
+   *
+  ***
+ *****
+*******
+"""
+
+Answer:
+n = int(input())
+i = 1
+#First Loop is for printing rows
+while i <= n:
+    spaces = 1
+    #Second Loop is for printing Spaces
+    while spaces <= n - i:
+        print(" ", end="")
+        spaces += 1
+    j = 1
+    p = 1 # for decreasing sequence
+    #Third Loop is for printing numbers
+    while j <= i:
+        print("*", end="")
+        j += 1
+        p += 1
+    # Fourth loop for decreasing sequence
+    p = i - 1
+    while p >= 1:
+        print("*", end="")
+        p -= 1
+    print()
+    i += 1
+
+
+###Question
+"""
+Diamond of stars
+Note: N is always odd.
+
+Pattern for N = 5
+  ***
+ *****
+  ***
+   *
+"""
+
+Answer:
+n = int(input())  # e.g. 5 -> middle row has 5 stars
+
+# Upper half (including middle)
+i = 1
+while i <= (n + 1) // 2:
+    spaces = 1
+    while spaces <= ((n + 1) // 2) - i:
+        print(" ", end="")
+        spaces += 1
+
+    stars = 1
+    while stars <= (2 * i - 1):
+        print("*", end="")
+        stars += 1
+
+    print()
+    i += 1
+
+# Lower half
+i = (n + 1) // 2 - 1
+while i >= 1:
+    spaces = 1
+    while spaces <= ((n + 1) // 2) - i:
+        print(" ", end="")
+        spaces += 1
+
+    stars = 1
+    while stars <= (2 * i - 1):
+        print("*", end="")
+        stars += 1
+
+    print()
+    i -= 1
+

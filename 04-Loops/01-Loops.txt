@@ -1,0 +1,212 @@
+#Loops 
+
+#Example- Multiplication table
+# Read input as specified in the question
+n = int(input())
+
+# Print the first 10 multiples of n
+for i in range(1, 11):
+    print(n * i)
+
+## Sum of All Even Numbers 
+Problem statement
+Question: Given a number N, print sum of all even numbers from 1 to N.
+
+Answer one: Using Range
+N = int(input())
+
+even_sum = 0
+
+# Loop through numbers from 1 to N
+for i in range(1, N + 1):
+    if i % 2 == 0:
+        even_sum += i
+
+# Print the sum of even numbers
+print(even_sum)
+
+Answer two: Using while Loop
+N = int(input())
+
+# Initialize variables
+i = 1
+even_sum = 0
+
+while i <= N:
+     if i % 2 == 0:
+        even_sum += i
+     i += 1
+
+print(even_sum)
+
+## Example-- Check if Number is prime or Composite
+N = int(input())
+isPrime = True
+i = 2
+
+while i <= N - 1:
+    if N % i == 0:
+        #This is Composite Number
+        isprime = False
+        break
+    i += 1
+if isPrime:
+    print("This is Prime number")
+else:
+    print("This is Composite number")
+print("While Loop ends")
+
+##Example - Loop in Reverse using while loop 
+i = 20
+while i >= 1:
+    print(i)
+    i -= 1
+
+## Problem Statement
+Question: print Individual numbers in Reverse order 
+
+Answer: if we done have range values clear we prefer while loop. 
+
+N = int(input())
+while N > 0: 
+    rem = N % 10 # it Gives us the last digit
+    print(rem, end=" ")
+    N //= 10 # It eliminates the last digit
+
+Problem statement
+Question: Write a program to generate the reverse of a given number N. Print the corresponding reverse number.
+
+Note : If a number has trailing zeros, then its reverse will not include them. For e.g., reverse of 10400 will 
+be 401 instead of 00401.
+
+Answer: 
+n = int(input())
+reverse = 0
+while n > 0:
+    rem = n % 10
+    reverse = reverse * 10 + rem  # Build the reversed number
+    n //= 10
+print(reverse)
+
+
+## Fibonacci Series 
+Question: Print the series in Fibonacci i.e take the input from user to print how many fib. numbers
+
+Answer:  
+n = int(input())
+
+second_last_num = 0
+last_num = 1
+
+print(second_last_num)
+print(last_num)
+
+count = 2 # how many fib numbers we want i.e n
+
+while count <= n:
+    next_fib = last_num + second_last_num
+    print(next_fib)
+    second_last_num = last_num
+    last_num = next_fib
+
+    count += 1
+
+## Fibonacci Series 
+Question: Print the Last Number(nth) in series for Fibonacci i.e take the input from user to print last number
+
+Answer: 
+n = int(input())
+
+second_last_num = 0
+last_num = 1
+
+if n == 1:
+    print(second_last_num)
+elif n == 2:
+    print(last_num)
+else:
+    count = 3
+    while count <= n:
+        next_fib = last_num + second_last_num
+        second_last_num = last_num
+        last_num = next_fib
+        count += 1
+    print(last_num)
+
+
+#Decimal to Binary
+Question: Convert a given (n) number into Binary
+
+Answer: 
+n = int(input())
+ans = ""
+
+while n > 0:
+    if n % 2 == 0:
+        #Even
+        ans = "0" + ans
+    else:
+        #Odd
+        ans = "1" + ans
+    n //= 2
+print(ans)
+
+Answer2: Handle the Zero(0) Value
+n = int(input())
+ans = ""
+
+if n == 0:
+    print("0")
+else:
+    while n > 0:
+        if n % 2 == 0:
+            #Even
+            ans = "0" + ans
+        else:
+           #Odd
+           ans = "1" + ans
+        n //= 2
+    print(ans)
+
+##Binary to decimal
+Question: Convert the give binary to decimal
+
+Ans:
+n = int(input())
+
+ans = 0 
+power_of_2 = 1 # 2 raise to the power 0
+while n > 0:
+    last_digit = n % 10 # remainder
+    ans += last_digit * power_of_2
+
+    power_of_2 *= 2
+    n //= 10 #eliminate the last digit
+    
+print(ans)
+
+## Print the Table Using For Loop 
+for value in range(1, 21):
+    for i in range(1, 11):
+        print(value*i, end=" ")
+    print()
+
+## Print the Table using While Loop
+value = 1
+while value <= 20:
+    i = 1
+    while i <= 10:
+        print(value * i, end=" ")
+        i += 1
+    value += 1
+    print()
+
+Problem statement
+Question: Write a Python program that generates multiplication tables for numbers from 1 to a given integer N.
+
+Answer:
+n = int(input())
+for value in range(1, n + 1):
+    for i in range(1, 11):
+        print(value*i, end=" ")
+    print()
