@@ -1,0 +1,166 @@
+###Question
+Problem statement
+You are given a number 'n'. Return "true" if the given number is a palindrome or "false" otherwise.
+
+Note:
+You don’t need to print anything, it has already been taken care of, just complete the given function. “true” will be printed if the returned value 
+is "true "and “false” otherwise.
+
+Answer:
+def palindromeNumber(n: int) -> bool:
+    original_num = n
+    reverse = 0
+    while n > 0:
+        last_digit = n % 10
+        reverse = reverse * 10 + last_digit
+        n //= 10
+    return original_num == reverse
+
+result = palindromeNumber(1234)
+print(result)
+
+
+###Question
+Check Armstrong Number
+
+Answer:
+def digit_count(n):
+    result = 0
+    while n > 0:
+        result += 1
+        n = n // 10
+    return result
+
+def check_armstrong_number(num):
+    count = digit_count(num)
+    sum_of_digits = 0
+    original_num = num
+    while num > 0:
+        last_digit = num % 10
+        sum_of_digits += last_digit ** count
+        num = num // 10
+    return sum_of_digits == original_num
+
+check_armstrong_number(153)
+
+
+###Question
+"""
+Problem statement
+Given an integer n, find and Return the factorial of the given integer.
+
+Notes:
+The Factorial of a whole number 'n' is defined as the product of that number with every whole number less than or equal to 'n' till 1.
+For example, the factorial of 4 is 4 × 3 × 2 × 1, which is equal to 24.
+"""
+
+Answer:
+def factorial(n: int) -> int:
+    fact = 1
+    i = 1
+    while i <= n:
+        fact *= i
+        i += 1
+    return fact
+
+n = int(input())
+factorial(n)
+
+
+###Question
+"""
+Your task is to write a function named print_composite that prints if there are any composite numbers up to a 
+given number, n.
+
+Composite numbers are positive integers greater than 1 that have more than two positive divisors. 
+In other words, a composite number has factors other than 1 and itself.
+"""
+
+Answer:
+def is_prime(n):
+    if n <= 1:
+        return False
+    i = 2
+    while i * i <= n:
+        if n % i == 0:
+            return False
+        i += 1
+    return True
+
+
+def print_composite(n):
+    i = 2
+    while i <= n:
+        if not is_prime(i):
+            print(i)
+        i += 1
+
+
+
+###Question
+"""
+Problem statement
+Create a function that determines whether a given number N belongs to the Fibonacci sequence. If N is found in the Fibonacci sequence, 
+the function should return true; otherwise, it should return false.
+"""
+
+Answer:
+def checkMember(n):
+    if n < 0:
+        False
+    second_last_num = 0
+    last_num = 1
+    while second_last_num <= n:
+        if second_last_num == n:
+            return True
+        new_num = second_last_num + last_num
+        second_last_num = last_num
+        last_num = new_num
+    return False
+
+checkMember(5)
+
+
+###Question:
+"""
+Problem statement
+Given two numbers, x, and y, calculate and Return their GCD.
+
+GCD stands for "Greatest Common Divisor." It refers to the largest positive integer that divides two or more numbers 
+without leaving a remainder.
+"""
+
+Answer:
+def find_GCD(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+find_GCD(48, 18)
+
+
+###Question:
+"""
+Problem statement
+Given three values - Start Fahrenheit Value (S), End Fahrenheit value (E) and Step Size (W), you need to convert all Fahrenheit values from Start to End at the gap of W, into their corresponding Celsius values and print the table.
+
+Note: You don't have to write the main function or take input. It has already been taken care of and you need to just print the integer value . Just write the code that prints Fahrenheit to Celsius table in the function itself.
+Formula is C = (F - 32) * 5/9
+"""
+
+Answer:
+def printTable(start, end, step):
+    while start <= end:
+        celsius = int((start - 32) * 5 / 9)  # Convert F ? C and take integer part
+        print(start, celsius)
+        start += step
+
+
+# Inputs (already given in the problem)
+s = int(input())
+e = int(input())
+step = int(input())
+
+printTable(s, e, step)
+
+
