@@ -1,0 +1,161 @@
+#Mutability: when we create a variable, it gets a location in memory and when we try to update it on
+the same location in memory it is called mutability.
+
+#Immutability: when we create a variable, it gets a location in memory and when we try to update, 
+it gets a new location in memory again it is called immutability.
+
+#Mutable/Immutable Example: when we write something on a paper using pencil we can erase it and write on the 
+same line and place i.e mutability. if we use a pen we cannot erase it and we need to write on a different 
+place i.e immutability.
+
+##In Python Lists/Arrays are Mutable.
+
+###Question
+Find the Character in the string i.e how many times a character is repeated
+
+Answer:
+def check_char_freq(string, char):
+    idx = 0
+    count = 0
+    while idx < len(string):
+        if string[idx] == char:
+            count += 1
+        idx += 1
+    return count
+
+check_char_freq("happy birthday", "h")
+
+Answer using for Loop:
+def check_char_freq(string, char):
+    count = 0
+    for idx in range(0, len(string)):
+        if string[idx] == char:
+            count += 1
+        idx += 1
+    return count
+
+Answer: Another Version:
+def check_char_freq(string, char):
+    count = 0
+    for curr_char in string:
+        if curr_char == char:
+            count += 1
+    return count
+
+
+
+###Question
+Taking out a Sub-string using Slice method 
+
+Answer:
+email = "vinaychoudhary2401@gmail.com"
+print(email[1:5])
+inay
+
+email = "vinaychoudhary2401@gmail.com"
+print(email[-6:-1])
+il.co
+
+email = "vinaychoudhary2401@gmail.com"
+print(email[0:6:2])
+vny
+
+email = "vinaychoudhary2401@gmail.com"
+print(email[-2:-6:-1])
+oc.l
+
+email = "vinaychoudhary2401@gmail.com"
+print(email[::-1])
+moc.liamg@1042yrahduohcyaniv
+
+
+###Question
+How to get the memory Location of variable. 
+
+Answer: when we update the username it gets the new memory location i.e immutability
+username = "vinay"
+print(id(username))
+
+username += " Choudhary"
+print(id(username))
+
+2674161234688
+2674173621296
+
+
+###Question
+Check if the given string is Palindrome or not
+
+Answer:
+def check_palindrome(string):
+    n = len(string) #length of string
+    i = 0 # low pointer starts from left most
+    j = n - 1 # high pointer starts from right most
+    while i <= j: # we need to make sure we dont loop if low and high cross each other 
+        if string[i] != string[j]:
+            return False
+        i += 1 # move low pinter to the right
+        j -= 1 # move high pointer to the left
+    return True
+
+check_palindrome("naman")
+
+
+###Question
+String Interpolation i.e how to add a Variable with sting
+
+Answer:
+name = "Vinay"
+email = "VC@gmail.com"
+
+print("my name is: %s and email is: %s"%(name, email))
+my name is: Vinay and email is: VC@gmail.com
+
+Another Example Using Float and get 2 decimal:
+num = 12.3488
+print("the num is %.2f"%(num))
+
+the num is 12.35
+
+Another Example Using Foramt Function:
+name = "Vinay"
+email = "VC@gmail.com"
+
+print("my name is: {} and email is: {}".format(name, email))
+my name is: Vinay and email is: VC@gmail.com
+
+Another Example Using Index in Format:
+name = "Vinay"
+email = "VC@gmail.com"
+
+print("my name is: {1} and email is: {0}".format(name, email))
+my name is: VC@gmail.com and email is: Vinay
+
+
+Another but very important Example Using f"Strings":
+
+name = "Vinay"
+email = "VC@gmail.com"
+value = f"my name is: {name} and email is: {email}"
+print(value)
+
+my name is: Vinay and email is: VC@gmail.com
+
+
+
+###Question
+Examples of Other Methods on Strings
+
+email = "VC@gmail.com"
+print(email.upper())
+
+name = "Vinay Ch"
+print(name.split(" "))
+
+li = ['Vinay', 'Ch']
+print(" ".join(li))
+
+print(email.find("gm"))
+
+
+

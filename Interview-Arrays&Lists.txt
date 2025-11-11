@@ -1,0 +1,556 @@
+#Creating a Array
+from array import array as arr
+#Stores in a Continous way in memory
+
+# i - Array of integers
+numbers = arr('i', [1, 2, 3])
+print(numbers)
+
+# d - Floating array
+doubles = arr('d', [1.2, 3.14, 2.69])
+print(doubles)
+
+#Loop over Arr
+for i in range(0, 3):
+    print(doubles[i])
+
+__________________________________________________
+LISTS
+##Creating Arrays using Lists
+# Stored in random way in memory
+elements = [1, 'a', 3.14]
+print(elements)
+
+print(elements[0])
+
+print(elements[1])
+
+___________________________________________________________
+
+Adding
+ --append- Adds at the end of the list
+
+append_op = [1, 'a', 3.14]
+append_op.append(4)
+print(append_op)
+
+
+ --insert- Insert at any position within the list
+
+insert_op = [1, 'a', 3.14]
+insert_op.insert(1, 'inserted')
+print(insert_op)
+
+ --extend- concatenation of 2 Lists or extending first list with elements of second list.
+
+append_op = [1, 'a', 3.14]
+insert_op = [2, 'b', 4.14]
+insert_op.extend([10, 11, 10.99])
+print(insert_op)
+append_op.extend(insert_op)
+print(append_op)
+
+Removing
+ --pop- by default removes last element, if index is passed removes element at that index.
+
+ pop_op = [1, 'a', 3.14]
+pop_op.pop()
+print(pop_op)
+pop_op.pop(1)
+print(pop_op)
+
+ --remove- it removes the first occurence of the element
+
+ remove_op = [1, 'a', 3.14, 1, 2, 'a', 2]
+remove_op.remove(1)
+print(remove_op)
+remove_op.remove('a')
+print(remove_op)
+
+ --clear- clears the list, removes all elements.
+
+ clear_op = [1, 'a', 3.14, 1, 2, 'a', 2]
+clear_op.clear()
+print(clear_op)
+
+
+##Copy-Creates the Deep copy of the list. just like spread operator in JS. 
+
+copy_op = [1, 'a', 3.14, 1, 2, 'a', 2]
+deep_copy = copy_op.copy()
+copy_op.pop(0)
+print(copy_op)
+print(deep_copy) 
+
+##Index- finds the first index where an element occurs.
+
+index_op = [1, 'a', 3.14, 1, 2, 'a', 2]
+index = index_op.index('a')
+print(index)
+
+##Reverse- It will reverse the list.
+
+reverse_op = [1, 'a', 3.14, 1, 2, 'a', 2]
+reverse_op.reverse()
+print(reverse_op)
+
+##Sort- Sorts the list in ascending order.
+
+sort_op = [1, 0, 37, 1, 2, 9, 2]
+sort_op.sort()
+print(sort_op)
+
+## + and * -- Arithematic ops
+
+#Multiplication
+mul_op = [1]
+new_mul = mul_op * 3
+print(mul_op)
+print(new_mul)
+[1]
+[1, 1, 1]
+
+#Addition 
+add_op = [1, 4]
+ano_add_op = [3, 8]
+print(add_op + ano_add_op)
+[1, 4, 3, 8]
+
+
+##Slice- it takes the starting and ending index
+
+slice_arr = [1, 2, 5, 7, 2, 9]
+#[i:j] --> it retuens from [i, i + 1, ...., ...., j - 1]
+slice_op = slice_arr[1:len(slice_arr) - 1]
+print(slice_op)
+[2, 5, 7, 2]
+
+#Slice Reverse Order
+slice_rev_arr = [1, 2, 5, 7, 2, 9]
+slice_rev_op = slice_arr[::-1]
+print(slice_rev_op)
+[9, 2, 7, 5, 2, 1]
+
+
+##Max element
+#map in Python does not reuturn an array, we need to convert it using list
+all_marks = list(map(int, input().split(" "))) #Taking list of integers as input
+
+# Assign the first value
+max_marks = all_marks[0]
+
+for marks in all_marks:
+    max_marks = max(marks, max_marks)
+print(max_marks)
+
+
+##Min Element
+def minimum_element(arr, n):
+    # Initialize minimum with the first element
+    minimum = arr[0]
+
+    # Traverse through the array
+    for i in range(1, n):
+        # Compare and update minimum
+        minimum = min(minimum, arr[i])
+
+    return minimum
+
+arr = list(map(int, input().split(" ")))
+n = len(arr)
+print(minimum_element(arr, n))
+
+
+###Sum Elements
+#Sum Elements
+# Read input as specified in the question
+# n = int(input())
+arr = list(map(int, input().split()))
+n = len(arr)
+
+# Calculate the sum of all elements
+total = sum(arr)
+
+# Print the output
+print(total)
+
+
+##Check Palindrome using Reverse()
+
+def check_palindrome(arr):
+    rev = arr.copy()
+    rev.reverse()
+    return arr == rev
+
+print(check_palindrome([1, 2, 2 , 1]))
+
+##Check palindrome using 2 Pointers
+def check_palindrome_pointer(arr):
+    lo = 0
+    hi = len(arr) - 1
+    while lo <= hi:
+        if arr[lo] != arr[hi]:
+            return False
+        lo += 1
+        hi -= 1
+    return True
+
+print(check_palindrome_pointer([1, 2, 3 , 1]))
+
+
+###Question
+Problem statement
+You have been given an array/list(ARR) of size N. You need to swap every pair of alternate elements in the array/list.
+
+You don't need to print or return anything, just change in the input array itself.
+
+Correct Answer:
+def swapAlternate(arr, n):
+    # Iterate through the array with step of 2
+    # Swap elements at positions i and i+1
+    for i in range(0, n-1, 2):
+        # Swap arr[i] and arr[i+1]
+        arr[i], arr[i+1] = arr[i+1], arr[i]
+
+
+Another Solution with inputs:
+def swapAlternate(arr, n):
+    # Iterate through the array with step of 2
+    # Swap elements at positions i and i+1
+    for i in range(0, n-1, 2):
+        # Swap arr[i] and arr[i+1]
+        arr[i], arr[i+1] = arr[i+1], arr[i]
+
+
+# Main code to handle input/output
+t = int(input())  # Number of test cases
+
+for _ in range(t):
+    n = int(input())  # Size of array
+    arr = list(map(int, input().split()))  # Read array elements
+    
+    swapAlternate(arr, n)  # Call the function
+    
+    # Print the modified array
+    print(*arr)
+
+
+**Explanation of input handling:**
+1. `t = int(input())` - Reads the number of test cases
+2. `for _ in range(t):` - Loop through each test case
+3. `n = int(input())` - Reads the size of the array
+4. `arr = list(map(int, input().split()))` - Reads the array elements:
+   - `input().split()` splits the input string by spaces
+   - `map(int, ...)` converts each element to integer
+   - `list(...)` creates a list from the mapped values
+5. `swapAlternate(arr, n)` - Calls the function to swap elements
+6. `print(*arr)` - Prints array elements separated by space (the `*` unpacks the list)
+
+
+###Question
+Rearrange the numbers, such that all even numbers should come before odd numbers
+
+Answer:
+def arrange_numbers(arr):
+    first_odd_ptr = 0
+    for i in range(len(arr)):
+        if arr[i] % 2 == 0:
+            arr[i], arr[first_odd_ptr] = arr[first_odd_ptr], arr[i]
+            first_odd_ptr += 1
+
+    print(arr)
+
+arr =[1, 3, 9, 2, 7, 8, 2, 6]
+
+
+
+###Question
+You have been given an integer array/list(ARR) of size N that contains only integers, 0 and 1. 
+Write a function to sort this array/list. Think of a solution which scans the array/list only once and 
+don't require use of an extra array/list.
+
+Answer one:
+def sort_numbers(arr):
+    first_odd_ptr = 0
+    for i in range(len(arr)):
+        if arr[i] == 0:
+            arr[i], arr[first_odd_ptr] = arr[first_odd_ptr], arr[i]
+            first_odd_ptr += 1
+
+    print(arr)
+
+arr =[1, 0, 1, 1, 0, 1, 1, 0]
+sort_numbers(arr)
+
+Answer Two:
+def sort_numbers(arr, n):
+    first_odd_ptr = 0
+    for i in range(n):
+        if arr[i] == 0:
+            arr[i], arr[first_odd_ptr] = arr[first_odd_ptr], arr[i]
+            first_odd_ptr += 1
+
+    print(arr)
+
+arr =[1, 0, 1, 1, 0, 1, 1, 0]
+sort_numbers(arr)
+
+
+###Question
+#Pair Sum-- find pairs which equal to the gien sum
+
+Answer:
+def pair_sum(arr, x):
+    tot = 0
+    for i in range(len(arr)):
+        left = arr[i]
+        expected = x - arr[i] # the difference between them i.e 7 - 1 = 6(we are looking for 6)
+        for j in range(i + 1, len(arr)):
+            if arr[j] == expected:
+                tot += 1
+    return tot
+
+pair_sum([1, 3, 6, 2, 5, 4, 3, 2, 4], 7)
+
+
+###Question
+Problem statement
+You have been given a random integer array/list(ARR) and a number X. Find and return the number of triplets in the array/list which sum to X.
+
+Note :
+Given array/list can contain duplicate elements.
+
+Answer Using Brute Force:
+def findTriplet(arr, n, x):
+    count = 0
+    for i in range(n):
+        for j in range(i + 1, n):
+            for k in range(j + 1, n):
+                if arr[i] + arr[j] + arr[k] == x:
+                    count += 1
+    return count
+arr = [1, 2, 3, 4, 5, 6]
+findTriplet(arr, len(arr), 10)
+
+Answer using Two Pointers:
+def findTriplet(arr, n, x) :
+    
+    # 1. Sort the array
+    arr.sort()
+    
+    num_triplets = 0
+    
+    # 2. Fix the first element, arr[i]
+    # We iterate up to n-2 to leave room for at least two other elements
+    for i in range(n - 2):
+        
+        # The remaining two numbers must sum to this target
+        target_pair_sum = x - arr[i]
+        
+        # 3. Use two-pointers (left and right) for the rest of the array
+        left = i + 1
+        right = n - 1
+        
+        while left < right:
+            
+            current_sum = arr[left] + arr[right]
+            
+            if current_sum == target_pair_sum:
+                # Found a pair (arr[left], arr[right]) that works with arr[i]!
+                # Now, we must handle duplicates.
+                
+                element_at_left = arr[left]
+                element_at_right = arr[right]
+                
+                if element_at_left == element_at_right:
+                    # Case 1: Both elements are the same (e.g., [..., 4, 4, 4, 4, ...])
+                    # All elements between left and right are identical.
+                    elements_count = right - left + 1
+                    
+                    # We need to choose 2 from this block: (elements_count * (elements_count - 1)) / 2
+                    num_triplets += (elements_count * (elements_count - 1)) // 2
+                    
+                    # We've counted all pairs in this block, so we are done
+                    # with the 'while' loop for this 'i'.
+                    break
+                
+                else:
+                    # Case 2: The elements are different (e.g., [..., 2, 2, ..., 5, 5, 5, ...])
+                    
+                    # Count all identical elements from the left
+                    temp_left_index = left
+                    while left < right and arr[left] == element_at_left:
+                        left += 1
+                    count_from_left = left - temp_left_index
+                    
+                    # Count all identical elements from the right
+                    temp_right_index = right
+                    while right >= left and arr[right] == element_at_right:
+                        right -= 1
+                    count_from_right = temp_right_index - right
+                    
+                    # Total number of pairs is the product of the counts
+                    # e.g., two 2s and three 5s make 2*3 = 6 pairs.
+                    num_triplets += (count_from_left * count_from_right)
+                    
+                    # 'left' and 'right' are now at new positions,
+                    # so the loop continues.
+                    
+            elif current_sum < target_pair_sum:
+                # Sum is too small, need a larger number.
+                left += 1
+                
+            else: # current_sum > target_pair_sum
+                # Sum is too big, need a smaller number.
+                right -= 1
+                
+    return num_triplets
+
+arr = [1, 2, 3, 4, 5, 6]
+findTriplet(arr, len(arr), 10)
+
+
+###Question
+Problem statement
+You have been given a random integer array/list(ARR) of size N, and an integer X. You need to search for 
+the integer X in the given array/list using 'Linear Search'.
+
+You have been required to return the index at which X is present in the array/list. 
+If X has multiple occurrences in the array/list, then you need to return the index at which the first occurrence 
+of X would be encountered. In case X is not present in the array/list, then return -1.
+
+'Linear search' is a method for finding an element within an array/list. It sequentially checks each element 
+of the array/list until a match is found or the whole array/list has been searched.
+
+Answer:
+def linearSearch(arr, n, val) :
+    #write your code logic
+    for i in range(n):
+        if arr[i] == val:
+            return i
+    return -1 
+
+arr = [2, 4, 1, 3, 6, 4]
+n = len(arr)
+val = 4
+
+print(linearSearch(arr, n, val))
+
+
+###Question
+Problem statement
+You have been given an integer array/list(ARR) of size N. Where N is equal to [2M + 1].
+
+Now, in the given array/list, 'M' numbers are present twice and one number is present only once.
+
+You need to find and return that number which is unique in the array/list.
+
+ Note:
+Unique element is always present in the array/list according to the given condition.
+
+Answer:
+def findUnique(arr, n):
+    unique = 0
+    for num in arr:
+        """
+        So, if we XOR all numbers in the array:
+The duplicate numbers will cancel out (because x ^ x = 0)
+The remaining value will be the unique number
+        """
+        unique ^= num   # XOR each element
+    return unique
+
+arr = [2, 3, 1, 6, 3, 6, 2]
+n = len(arr)
+print(findUnique(arr, n))
+
+
+###Question
+Problem statement
+You have been given an integer array/list(ARR) of size N which contains numbers from 0 to (N - 2). Each number is present at least once. That is, if N = 5, the array/list constitutes values ranging from 0 to 3 and among these, there is a single integer value that is present twice. You need to find and return that duplicate number present in the array.
+
+Note :
+Duplicate number is always present in the given array/list.
+
+Answer using Mathematical Formula:
+def duplicateNumber(arr, size):
+    expected_sum = ((size - 2) * (size - 1)) // 2
+    actual_sum = sum(arr)
+    return actual_sum - expected_sum
+
+arr = [0, 2, 1, 3, 1]
+print(duplicateNumber(arr, len(arr)))
+
+Answer using XOR Approach:
+def duplicateNumber(arr, size):
+    ans = 0
+    for i in range(size - 1):
+        ans ^= i
+    for num in arr:
+        ans ^= num
+    return ans
+
+arr = [0, 2, 1, 3, 1]
+print(duplicateNumber(arr, len(arr)))
+
+
+###Question
+Problem statement
+You have been given a random integer array/list(ARR) of size N. You are required to find and return 
+the second largest element present in the array/list.
+
+Answer:
+def secondLargestElement(arr, n):
+    # If the array has fewer than 2 elements there cannot be a second largest value, so we immediately return -1
+    if n < 2:
+        return -1
+# initialized to negative infinity (float('-inf')) so that any real number from the array is greater than them. 
+    #This avoids special-casing the first iteration.
+    first = second = float('-inf')
+
+    for num in arr:
+        if num > first:
+            second = first
+            first = num
+        elif num > second and num != first:
+            second = num
+    """
+    If second is still -inf, we never found any value distinct and smaller than first (this happens when all 
+    elements are equal or there’s 
+    only one unique value). Return -1.
+    Otherwise, return second, which holds the second largest distinct element.
+    """
+    return -1 if second == float('-inf') else second
+
+arr = [2, 13, 4, 1, 3, 6, 28]
+print(secondLargestElement(arr, len(arr)))
+
+
+###Question
+Problem statement
+You have been given an empty array(ARR) and its size N. The only input taken from the user will be N and you 
+need not worry about the array.
+
+Your task is to populate the array using the integer values in the range 1 to N(both inclusive) in 
+the order - 1,3,5,.......,6,4,2.
+
+Answer:
+def arrange(arr, n):
+    start = 0          # pointer for beginning
+    end = n - 1        # pointer for end
+    num = 1            # number to place
+
+    while start <= end:
+        # Fill odd numbers from start
+        if num % 2 != 0:
+            arr[start] = num
+            start += 1
+        # Fill even numbers from end
+        else:
+            arr[end] = num
+            end -= 1
+        num += 1
+    return arr
+
+array = [2, 13, 4, 1, 3, 6, 28]
+print(arrange(array, len(array)))
