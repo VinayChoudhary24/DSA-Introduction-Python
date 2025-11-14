@@ -1,0 +1,461 @@
+#Two Dimensional Lists are like Chess Board 
+
+#Example 
+# This is a 4x4 2d List
+li = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+
+# Access Elements
+li[2][3]
+
+12
+
+# Update the element
+li[2][3] = 20
+print(li)
+
+[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 20], [13, 14, 15, 16]]
+
+
+### LIST COMPREHENSION -- Reduce the code of lines
+
+li = [1, 2, 3,4]
+li_even_square = []
+for ele in li:
+    if ele % 2 == 0:
+        li_even_square.append(ele**2)
+
+print(li_even_square)
+[4, 16]
+
+# With List Comprehension we can reduce our code 
+li_even_square = [ele**3 for ele in li if ele % 2 == 0]
+
+print(li_even_square)
+[8, 64]
+
+#Another Example
+
+li = [1,2,3,4,5,6,7,8,9]
+li_new = []
+for ele in li:
+    if ele % 2 ==0:
+        if ele % 3 == 0:
+            li_new.append(ele)
+
+print(li_new)
+[6]
+
+# With List Comprehension we can reduce our code 
+li_new = [ele for ele in li if ele % 2 == 0 if ele % 3 == 0]
+
+print(li_new)
+[6]
+
+
+#Another Example
+
+li_1 = [1,2,3,4]
+li_2 = [3,4,5,6]
+li_common = []
+for ele in li_1:
+    for ele2 in li_2:
+        if ele == ele2:
+            li_common.append(ele)
+
+print(li_common)
+[3, 4]
+
+# With List Comprehension we can reduce our code
+li_inter = [ele for ele in li_1 for ele2 in li_2 if ele == ele2]
+
+print(li_inter)
+[3, 4]
+
+
+#Another Example
+
+li_com_squ = [1,2,3,4]
+li_new2 = []
+for ele in li_com_squ:
+    if ele % 2 == 0:
+        li_new2.append(ele**2)
+    else:
+        li_new2.append(ele)
+
+print(li_new2)
+[1, 4, 3, 16]
+
+# With List Comprehension we can reduce our code
+li_com_squ_new = [ele**2 if ele % 2 == 0 else ele for ele in li_com_squ]
+
+print(li_com_squ_new)
+[1, 4, 3, 16]
+
+# STRING Example
+
+name = "vinay"
+li_name = [ele for ele in name]
+
+print(li_name)
+['v', 'i', 'n', 'a', 'y']
+
+#2D-List Example
+
+li_names = ["Vinay", "John", "James"]
+li_names_2d_List = [[s for s in ele] for ele in li_names]
+
+print(li_names_2d_List)
+[['V', 'i', 'n', 'a', 'y'], ['J', 'o', 'h', 'n'], ['J', 'a', 'm', 'e', 's']]
+
+#Another Example
+
+What will be the output of following code?
+
+li = [ele**2 for ele in range(5)]
+print(li)
+[0, 1, 4, 9, 16]
+
+-----
+What will be the output of following code?
+
+li = [ele**2 for ele in range(10) if ele%3 ==0]
+print(li)
+[0, 9, 36, 81]
+
+-----
+What will be the output of following code?
+
+li = [[ i*j for j in range(4)] for i in range(3)]
+print(li)
+[[0,0,0,0], [0,1,2,3], [0,2,4,6]]
+
+#2D-List with Input Example
+
+str = input().split()
+n,m = int(str[0]), int(str[1])
+li_input_2d_list = [[int(j) for j in input().split()] for i in range(n)]
+
+3 4
+ 1 2 3 4
+ 5 6 7 8
+ 9 10 11 12
+
+print(li_input_2d_list)
+[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+
+##2D-Jagged-List(where Column is not fixed) Uinsg input
+
+n = int(input())
+li_input_Jagged_2d_list = [[int(j) for j in input().split()] for i in range(n)]
+
+3
+ 1 2 3
+ 4 5 6 7
+ 8
+
+print(li_input_Jagged_2d_list)
+[[1, 2, 3], [4, 5, 6, 7], [8]]
+
+-----
+#Another Input Example -- taking rows, column and then taking list num as input
+
+str = input().split()
+n,m = int(str[0]), int(str[1])
+b = input().split()
+li_arr = [ [ int(b[m*i + j]) for j in range(m)] for i in range(n)]
+
+3 4
+ 1 2 3 4 5 6 7 8 9 10 11 12
+
+print(li_arr)
+[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+
+
+-----
+#Another Input Example - taking rows, columns and list numbers all in in one input separated by spaces
+
+str = input().split()
+n,m = int(str[0]), int(str[1])
+b = str[2:]
+li_arr_new = [ [ int(b[m*i + j]) for j in range(m)] for i in range(n)]
+
+3 4 1 2 3 4 5 6 7 8 9 10 11 12
+
+print(li_arr_new)
+[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+
+
+
+### Printing 2D-List Elements
+
+li_print = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+n = 3
+m = 4
+for i in range(n):
+    for j in range(m):
+        print(li_print[i][j], end=" ")
+    print()
+
+1 2 3 4 
+5 6 7 8 
+9 10 11 12
+
+
+### Printing Jagged 2D-List Elements
+
+li_print_jagged = [[1, 2, 3, 4], [5, 6,], [9, 10, 11]]
+for row in li_print_jagged:
+    for ele in row:
+        print(ele, end=" ")
+    print()
+
+1 2 3 4 
+5 6 
+9 10 11 
+
+### Join Function
+"ab".join("cdef")
+
+'cabdabeabf'
+
+"ab".join(['1', '2', '3', '4'])
+'1ab2ab3ab4'
+
+-----
+#Printing 2D-List using Join
+
+li_join_new = [[1, 2, 3, 4], [5, 6,], [9, 10, 11]]
+for row in li_join_new:
+    # print(row)
+    output = " ".join([str(ele) for ele in row])
+    print(output)
+
+1 2 3 4
+5 6
+9 10 11
+
+
+
+###Question
+For a given two-dimensional integer array/list of size (N x M), find and print the sum of each of the row 
+elements in a single line, separated by a single space.
+
+Answer:
+def rowWiseSum(mat, nRows, mCols):
+    # Iterate through each row
+    for row in mat:
+        # Calculate sum of current row
+        row_sum = sum(row)
+        # Print the sum followed by a space (no newline)
+        print(row_sum, end=" ")
+
+str = input().split()
+n,m = int(str[0]), int(str[1])
+li_input_2d_list = [[int(j) for j in input().split()] for i in range(n)]
+rowWiseSum(li_input_2d_list, n, m)
+
+ 3 4
+ 1 2 3 4
+ 5 6
+ 7 8 9
+10 11 24 
+
+
+###Question
+Find the Largest Column sum in 2D-Lists
+
+Answer One:
+def lar_col_sum(li):
+    n = len(li)
+    m = len(li[0])
+
+    max_sum = -1
+    max_col_ind = -1
+    for j in range(m):
+        sum = 0
+        for i in range(n):
+            sum += li[i][j]
+            if sum > max_sum:
+                max_sum = sum
+                max_col_ind = j
+    return max_sum, max_col_ind
+
+li_large = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+lar_sum, lar_col_ind = lar_col_sum(li_large)
+print(lar_sum, lar_col_ind)
+
+24 3
+
+Answer Two:
+def lar_col_sum2(li):
+    n = len(li)
+    m = len(li[0])
+
+    max_sum = -1
+    max_col_ind = -1
+    for j in range(m):
+        sum = 0
+        for ele in li:
+            sum += ele[j]
+            if sum > max_sum:
+                max_sum = sum
+                max_col_ind = j
+    return max_sum, max_col_ind
+
+li_large = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+lar_sum, lar_col_ind = lar_col_sum2(li_large)
+print(lar_sum, lar_col_ind)
+
+
+
+###Question
+What will be the output of following code?
+
+li=[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+for j in range(4):
+    for ele in li:
+        print(ele[j],end = “ “)
+
+Answer
+1 5 9 2 6 10 3 7 11 4 8 12
+
+
+###Question
+
+
+###Question
+Find the Largest Row or Column
+
+You are given a 2D list (array) with dimensions N rows and M columns, filled with integers. 
+Your task is to find the row or column that has the largest sum of its elements.
+
+Important Rules:
+- If two or more rows/columns have the same sum, choose the one that comes first.
+- If a row and a column have the same largest sum, choose the row.
+Goal: Return which row or column has the largest sum.
+
+Answer: 
+def findLargest(arr, nRows, mCols):
+    MIN_VALUE = -2147483648
+    max_sum = MIN_VALUE
+    result = ""
+
+    if nRows == 0 or mCols == 0:
+        print("row 0 -2147483648")
+        return
+
+    # Calculate sum for each row
+    for i in range(nRows):
+        row_sum = sum(arr[i])
+        if row_sum > max_sum:
+            max_sum = row_sum
+            result = "row " + str(i) + " " + str(max_sum)
+    
+    # Calculate sum for each column
+    for j in range(mCols):
+        col_sum = sum(arr[i][j] for i in range(nRows))
+        if col_sum > max_sum:  # Strictly greater to prefer rows
+            max_sum = col_sum
+            result = "col " + str(j) + " " + str(max_sum)
+    
+    print(result)
+
+lar_input = input().split()
+n,m = int(lar_input[0]), int(lar_input[1])
+li_input_2d_list = [[int(j) for j in input().split()] for i in range(n)]
+findLargest(li_input_2d_list, n, m)
+
+3 4
+ 1 2 3 4
+ 5 6 7 8
+ 9 10 11 12
+row 2 42
+
+
+
+###Question
+Print Like a Sine wave
+
+For a given two-dimensional integer array/list of size (N x M), print the array/list in a sine wave order, 
+i.e, print the first column top to bottom, next column bottom to top and so on.
+
+Answer:
+def wavePrint(mat, nRows, mCols):
+    # Iterate through each column
+    for col in range(mCols):
+        # If column index is even, print top to bottom
+        if col % 2 == 0:
+            for row in range(nRows):
+                print(mat[row][col], end=" ")
+        # If column index is odd, print bottom to top
+        else:
+            for row in range(nRows - 1, -1, -1):
+                print(mat[row][col], end=" ")
+
+wave_input = input().split()
+n,m = int(wave_input[0]), int(wave_input[1])
+li_wave_input_2d_list = [[int(j) for j in input().split()] for i in range(n)]
+wavePrint(li_wave_input_2d_list, n, m)
+
+ 3 4
+ 1 2 3 4
+ 5 6 7 8
+ 9 10 11 12
+1 5 9 10 6 2 3 7 11 12 8 4
+
+
+
+###Question
+Print Spiral
+
+For a given two-dimensional integer array/list of size (N x M), print it in a spiral form. That is, 
+you need to print in the order followed for every iteration:
+
+a. First row(left to right)
+b. Last column(top to bottom)
+c. Last row(right to left)
+d. First column(bottom to top)
+
+Answer:
+def spiralPrint(mat, nRows, mCols):
+    # Define boundaries
+    top = 0
+    bottom = nRows - 1
+    left = 0
+    right = mCols - 1
+    
+    while top <= bottom and left <= right:
+        # Print top row (left to right)
+        for col in range(left, right + 1):
+            print(mat[top][col], end=" ")
+        top += 1
+        
+        # Print right column (top to bottom)
+        for row in range(top, bottom + 1):
+            print(mat[row][right], end=" ")
+        right -= 1
+        
+        # Print bottom row (right to left) - if still valid
+        if top <= bottom:
+            for col in range(right, left - 1, -1):
+                print(mat[bottom][col], end=" ")
+            bottom -= 1
+        
+        # Print left column (bottom to top) - if still valid
+        if left <= right:
+            for row in range(bottom, top - 1, -1):
+                print(mat[row][left], end=" ")
+            left += 1
+
+spiral_input = input().split()
+n,m = int(spiral_input[0]), int(spiral_input[1])
+li_spiral_input_2d_list = [[int(j) for j in input().split()] for i in range(n)]
+spiralPrint(li_spiral_input_2d_list, n, m)
+
+ 4 4
+ 1 2 3 4
+ 5 6 7 8
+ 9 10 11 12
+ 13 14 15 16
+1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10
+
