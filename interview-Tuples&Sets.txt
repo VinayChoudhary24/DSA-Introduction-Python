@@ -1,0 +1,545 @@
+#Tuples - Is a Collection of Elements just like Lists, But Lists are Mutable and Tupes are Immutable.
+
+# We need to make a Copy and than update that for Tuples.
+
+# Tuples uses () Instead of []
+
+# Tuples can store different data types
+
+# When we want to store data which should not be updated at any point of time i.e user activities. we 
+  can use Tuples. sometimes even Inputs can be used as tuples.
+
+#Tuples Example 
+
+sample_tuple = (1, 2, "vinay", True)
+print(sample_tuple)
+
+(1, 2, 'vinay', True)
+
+print(sample_tuple[0])
+print(sample_tuple[2])
+print(sample_tuple[3])
+
+1
+vinay
+True
+
+#Tuples Operations Example 
+user_activity = ("User Clicked btn", "user Clicked btn 2", "User clicked on tab")
+print(user_activity)
+print(user_activity[0])
+print(user_activity[-1])
+
+('User Clicked btn', 'user Clicked btn 2', 'User clicked on tab')
+User Clicked btn
+User clicked on tab
+
+print(user_activity[::-1])
+('User clicked on tab', 'user Clicked btn 2', 'User Clicked btn')
+
+
+for element in user_activity:
+    print(element)
+
+User Clicked btn
+user Clicked btn 2
+User clicked on tab
+
+
+for i in range(0, len(user_activity)):
+    print(user_activity[i])
+
+User Clicked btn
+user Clicked btn 2
+User clicked on tab
+
+# How to Update a Tuple Example
+
+user_activity_update = ("User Clicked btn", "user Scrolled down", "User clicked on tab")
+print(user_activity_update)
+# to update tuple we need to convert it to list
+user_activity_list = list(user_activity_update)
+
+user_activity_list[1] = "User Clicked about section"
+print(user_activity_list)
+
+# Now we can convert the update list back to Tuple i.e assign the new tuple to it
+user_activity_update = tuple(user_activity_list)
+print(user_activity_update)
+
+('User Clicked btn', 'user Scrolled down', 'User clicked on tab')
+['User Clicked btn', 'User Clicked about section', 'User clicked on tab']
+('User Clicked btn', 'User Clicked about section', 'User clicked on tab')
+
+
+#Tuple Concatenation Example -- when we do a Tuple Concatenation we need to make sure we addd a Comma at the
+                                end so Python knows this is not a String and it's a Tuple
+
+tuple_concatenation = ("Tuple Concatenation with Comma",)
+user_activity_update += tuple_concatenation
+print(user_activity_update)
+
+('User Clicked btn', 'User Clicked about section', 'User clicked on tab', 'Tuple Concatenation with Comma')
+
+
+# Destructuring/Unpacking Tuples Example
+
+def destructure_tuples():
+    return "User Clicked btn", "user Scrolled down", "User clicked on tab"
+
+result_tuples = destructure_tuples()
+print(result_tuples)
+('User Clicked btn', 'user Scrolled down', 'User clicked on tab')
+
+x, y, z = result_tuples
+print(x)
+print(y)
+print(z)
+
+User Clicked btn
+user Scrolled down
+User clicked on tab
+
+#Destructuring/Unpacking Example for asterisk (*) i.e remaining values together
+
+initial, *remaining = destructure_tuples()
+print(initial)
+print(remaining)
+
+User Clicked btn
+['user Scrolled down', 'User clicked on tab']
+
+
+## Important Tuples methods
+   #1 Count - how many times any element is present.
+              Example:
+                     user_activity_count = "User Clicked btn", "user Scrolled down", "User clicked on tab", "User Clicked btn"
+                     print(user_activity_count.count("User Clicked btn"))
+                     2
+  
+   #2 Index - search for a value and get it's index.
+              Example:
+                     print(user_activity_count.index("user Scrolled down"))
+                     1
+
+# Tuples Concatenation Examples
+
+  #Example where tuples are concatenated without comma and tuple is converted to a string
+u1 = ("concatenation")
+u2 = ("without comma")
+
+com = u1 + u2
+print(com)
+print(type(com))
+
+concatenationwithout comma
+<class 'str'>
+
+  #Here Tuples are concatenated with comma i.e tuple remains tuple
+u1 = ("concatenation",)
+u2 = ("with comma",)
+
+com = u1 + u2
+print(com)
+print(type(com))
+
+('concatenation', 'with comma')
+<class 'tuple'>
+
+# Tuple Multiplication
+
+tuple_mul = com * 3
+print(tuple_mul)
+
+('concatenation', 'with comma', 'concatenation', 'with comma', 'concatenation', 'with comma')
+
+
+## Sum of Tuples Examples
+
+ #For in loop
+def sum_of_tuple(tup):
+    tuple_sum_res = 0
+    for ele in tup:
+        tuple_sum_res += ele
+    return tuple_sum_res
+
+tuple_sum = (1, 2, 3, 4, 5)
+tup_sum_result = sum_of_tuple(tuple_sum)
+print(tup_sum_result)
+
+15
+
+ #Another for in loop
+def sum_of_tuple_ano(tup):
+    tuple_sum_res = 0
+    for i in range(0, len(tup)):
+        tuple_sum_res += tup[i]
+    return tuple_sum_res
+
+tuple_sum2 = (1, 2, 3, 4, 5, 6)
+tup_sum_result2 = sum_of_tuple_ano(tuple_sum2)
+print(tup_sum_result2)
+
+21
+
+
+###Question
+Get the unique Elements from the tuple
+
+Answer:
+def get_unique_ele(tup):
+    result_tup = []
+    for ele in tup:
+        if ele not in result_tup:
+            result_tup.append(ele)
+    return tuple(result_tup)
+
+unique_tuple = (2, 1, 7, 2, 9, 7, 4)
+unique_tuple_res = get_unique_ele(unique_tuple)
+print(unique_tuple_res)
+
+(2, 1, 7, 9, 4)
+
+
+###Question
+Given a tuple of integers, your task is to implement a function that returns the maximum and 
+minimum elements in the tuple. 
+
+Answer:
+def find_max_min(data):
+    max_res = data[0]
+    min_res = data[0]
+    for ele in data:
+        max_res = max(max_res, ele)
+        min_res = min(min_res, ele)
+    return max_res, min_res
+
+max_min_tuple = (2, 1, 7, 2, 9, 7, 4)
+max_min_tuple_res = find_max_min(max_min_tuple)
+print(max_min_tuple_res)
+
+(9, 1)
+
+
+==================================================================================================================
+----------------------------------------------------SETS--------------------------------------------------------
+==================================================================================================================
+
+#Sets - Stores unique values together in Unordered way.
+
+# Sets are more Efficient and has better performance when compared to Lists. Due to this values are stored 
+  in unordered way.
+
+# Example of sets
+
+product_list = {"jeans", "jeans", "jacket", "shirt", "jacket",}
+ # When we create a set using {} and print it, it automatically removes the duplicates and keeps only unique values
+print(product_list)
+
+{'jeans', 'shirt', 'jacket'}
+
+#IMP- Sets are mutable but in sets we dont have Indexing so we need to manually remove and add elements in sets.
+
+# Example to understand sets basic
+
+# how to declare empty sets using the set function
+products = set()
+print(type(products))
+
+# Add a element in set using the add function
+products.add("Pen")
+products.add("Paper")
+
+print(products)
+
+<class 'set'>
+{'Pen', 'Paper'}
+
+---
+for ele in products:
+    print(ele)
+
+Pen
+Paper
+
+
+# Example to check if element is present in set 
+
+# Check if the element is present in the set or not, element name are case-sensitive 
+prod_check = "Pen" in products
+print(prod_check)
+
+rub_check = "Rubber" in products
+print(rub_check)
+
+True
+False
+
+# Examples to Combine/Join/Contatenation of sets
+
+# Join/Contatenation of sets
+pa1 = {"prod1", "prod2", "prod3", "prod6"}
+pb1 = {"prod4", "prod5", "prod6", "prod2"}
+
+# to combine we can use the |
+set_com = pa1 | pb1
+print(set_com)
+
+{'prod1', 'prod6', 'prod4', 'prod3', 'prod2', 'prod5'}
+
+-----
+# we can join sets using the union function also
+# to combine we can use the |
+set_com_union = pa1.union(pb1)
+print(set_com_union)
+
+{'prod4', 'prod1', 'prod6', 'prod3', 'prod2', 'prod5'}
+
+# Find the Common elements present in sets using the Intersection function
+
+# get the common elements from sets using intersection function
+common_ele = pa1.intersection(pb1)
+print(common_ele)
+
+{'prod2', 'prod6'}
+
+-----
+# only get the elements of the one set
+
+pa1_uniq_ele = pa1.difference(pb1)
+print(pa1_uniq_ele)
+
+{'prod1', 'prod3'}
+
+---
+# clear a set using the .clear() function
+
+pa1.clear()
+print(pa1)
+
+set()
+
+# Example to Remove/Discard 
+
+# remove a element using discard/remove functions
+remove_set = {"prod8", "prod9", "prod10"}
+remove_set.remove("prod8")
+print(remove_set)
+
+remove_set.remove("prod9")
+print(remove_set)
+
+{'prod9', 'prod10'}
+{'prod10'}
+
+
+###Question
+What will be the output of following code?
+
+s = {1,2,3,5,4,2,3,1}
+print(len(s),end= “ “)
+s.add(4)
+s.add(3)
+print(len(s))
+
+Answer:
+5 5
+
+
+###Question
+You are given two arrays, arr1 and arr2, each containing integers. Your task is to write a Python 
+function Merge(arr1, arr2) to merge the elements of these arrays into a single list 
+while eliminating any duplicate elements.
+
+Answer:
+def Merge(arr1, arr2):
+    arr_set1 = set(arr1)
+    arr_set2 = set(arr2)
+
+    merge_set = arr_set1 | arr_set2
+    print(merge_set)
+    print(type(merge_set))
+    return list(merge_set)
+
+arr1 = [1, 2, 3, 4, 5]
+arr2 = [4, 5, 6, 7, 8]
+mer_res = Merge(arr1, arr2)
+print(mer_res)
+
+{1, 2, 3, 4, 5, 6, 7, 8}
+<class 'set'>
+[1, 2, 3, 4, 5, 6, 7, 8]
+
+
+###Question
+Given a list of numbers, return the sum of unique numbers
+
+Answer:
+def sum_of_set(arr):
+    sum_arr_set = set(arr)
+    print(sum_arr_set)
+    result = 0
+    for ele in sum_arr_set:
+        result += ele
+    return result
+
+arr = [1, 2, 1, 3, 4, 2, 5, 6, 5]
+sum_res = sum_of_set(arr)
+print(sum_res)
+
+{1, 2, 3, 4, 5, 6}
+21
+
+
+###Question
+In a given string print all the vowels present in the string
+
+Answer:
+def check_vowels(string):
+    vowel_set = {"a", "e", "i", "o", "u",}
+    result = set()
+    for i in range(0, len(string)):
+        if string[i] in vowel_set:
+            result.add(string[i])
+    return result
+
+string = "vinay"
+vow_res = check_vowels(string)
+print(vow_res)
+
+{'a', 'i'}
+
+
+
+###Question
+Check if subarray sum is equal to zero in a list. if present return true or fasle
+
+Answer:
+# First we calculate the prefix_sum and than we check the if the sum is already present in set
+# if present we know that the subarray sum is zero 
+def check_subarray_sum_zero(li):
+    if len(li) == 0:
+        return False
+    if li[0] == 0:
+        return True
+    s = {li[0]}
+    prefix_sum = li[0]
+    for i in range(1, len(li)):
+        prefix_sum += li[i]
+        if prefix_sum in s or prefix_sum == 0:
+            return True
+        s.add(prefix_sum)
+    return False
+
+subarray_li = [1, 2, 2, -4, 3, 4]
+subarray_res = check_subarray_sum_zero(subarray_li)
+print(subarray_res)
+
+True
+
+
+###Question
+What is the output of the following Python code snippet?
+
+def Element(A,B):
+    A = set(A)
+    B = set(B)
+    if len(A) > len(B):
+        print (list(A-B))
+    else:
+        print (list(B-A))
+if __name__ == "__main__":
+    A = [1, 4, 5, 7, 9]
+    B = [4, 5, 7, 9]
+    Element(A,B)
+
+
+Answer:
+[1]
+
+
+###Question
+What is the output of the following Python code snippet?
+
+def check(string):
+    p = set(string)
+    s = {'0', '1'}
+    if s == p or p == {'0'} or p == {'1'}:
+        print("Yes")
+    else:
+        print("No")
+
+if __name__ == "__main__":
+    string = "101010000111"
+    check(string)
+
+
+Answer:
+Yes
+
+
+###Question
+You are given a tuple of integers and a target integer. Your task is to implement a function that finds the 
+starting index of the first occurrence of the target within the tuple.
+
+Answer:
+def StartingIndex(data,target):
+    target_ind = data.index(target)
+    return target_ind
+
+target_res = StartingIndex((1, 2, 3, 2, 1, 4), 2)
+print(target_res)
+
+1
+
+
+###Question
+Remove the last element from the Tuple
+
+You are given a Python function named "Remove_element" which takes a tuple test_tuple as input. 
+Your task is to implement the function to remove the last element from the tuple and return the modified tuple.
+
+Answer:
+def Remove_element(test_tuple):
+    # we use Slice
+    return test_tuple[:-1]
+
+last_ele_res = Remove_element((1, 2, 3, 4, 5, 6))
+print(last_ele_res)
+
+(1, 2, 3, 4, 5)
+
+
+
+###Question
+Count Vowels, Consonants and Spaces
+
+Given a string, write a program to count the number of vowels, consonants, and spaces in that string.
+
+Answer:
+def countVowelsConsonantsSpaces(s: str, n: int):
+    vowels = 0
+    consonants = 0
+    spaces = 0
+    
+    # Define vowel set for quick lookup
+    vowel_set = set('aeiouAEIOU')
+    
+    for char in s:
+        if char == ' ':
+            spaces += 1
+        elif char.isalpha():
+            if char in vowel_set:
+                vowels += 1
+            else:
+                consonants += 1
+    
+    return [vowels, consonants, spaces]
+
+count_string = "hello world"
+count_string_len = len(count_string)
+count_string_result = countVowelsConsonantsSpaces(count_string, count_string_len)
+print(count_string_result)
+
+[3, 7, 1]
+
