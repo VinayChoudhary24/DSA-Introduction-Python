@@ -1,0 +1,508 @@
+# Dictionary stores data in { "key": Value } Pairs.
+
+# The keys in Dictionary are Immutable for Better Performance i.e it is a Rule. So we can 
+have Strings and Tuples as Keys but not Lists.
+
+# IMP: Dictionary are Mutable i.e the Values for keys can be updated.
+
+# we cas use {} and dict() function to declare a dictionary.
+
+# Example 
+
+social_data = { "linkedIn": 2000, "fb": 1000, "Instagram": 30000, "X": 500, }
+
+print(social_data)
+
+{'linkedIn': 2000, 'fb': 1000, 'Instagram': 30000, 'X': 500}
+
+# Example on how to Add and Update the Dictionory
+
+# Update a key in Dict
+social_data["X"] = 5
+social_data["Instagram"] = 25000
+
+print(social_data)
+
+{'linkedIn': 2000, 'fb': 1000, 'Instagram': 25000, 'X': 5}
+
+# Add a key in Dict
+social_data["Youtube"] = 15000
+
+print(social_data)
+
+{'linkedIn': 2000, 'fb': 1000, 'Instagram': 25000, 'X': 5, 'Youtube': 15000}
+
+
+# Example to get the Unique keys, Values and items() function
+
+# Get only the unique keys
+print(social_data.keys())
+
+dict_keys(['linkedIn', 'fb', 'Instagram', 'X', 'Youtube'])
+
+
+# Get only the Values
+print(social_data.values())
+
+dict_values([2000, 1000, 25000, 5, 15000])
+
+
+# .items() Function gives the key: value pairs as Tuples
+print(social_data.items())
+
+dict_items([('linkedIn', 2000), ('fb', 1000), ('Instagram', 25000), ('X', 5), ('Youtube', 15000)])
+
+
+# Example of how to access the value for a key
+
+# Access the value of a key using []
+print(social_data["fb"])
+
+# Access the value of key using .get() func
+print(social_data.get("Youtube"))
+
+1000
+15000
+
+
+# Example of how to delete a key from dict
+
+# Remove the key from dict using pop() func
+print(social_data.pop("fb"))
+
+# Remove the key from dict using del func
+del social_data["X"]
+print(social_data)
+
+{'linkedIn': 2000, 'Instagram': 25000, 'Youtube': 15000}
+
+
+# Clear the whole dict
+social_data.clear()
+print(social_data)
+
+{}
+
+
+###Question
+What will be the output of following code?
+
+d = {1:2, “abc”:5, “def”:7}
+print(d[0])
+
+Answer:
+The provided code will raise a KeyError because the key 0 does not exist on the dictionary.
+
+
+###Question
+What will be the output of following code?
+
+a = {1:2,’list’:[1,2],3:5}
+a.pop(‘list’)
+a[‘list’] = [3,5]
+print(a[‘list’])
+
+Answer:
+[3,5]
+
+
+# Example of how to iterateover the Dict 
+
+# iterate over the Dict Using for in Loop
+social_data = { "linkedIn": 2000, "fb": 1000, "Instagram": 30000, "X": 500, }
+for key in social_data:
+    print(key, social_data[key])
+
+linkedIn 2000
+fb 1000
+Instagram 30000
+X 500
+
+
+# get the pair from for in loop
+
+for pair in social_data.items():
+    print(pair, pair[0], pair[1])
+
+('linkedIn', 2000) linkedIn 2000
+('fb', 1000) fb 1000
+('Instagram', 30000) Instagram 30000
+('X', 500) X 500
+
+
+# Example of how to make a copy of dict in new memory location
+
+# Copy a dict in a new memory location
+new_social_data = social_data.copy()
+print(new_social_data)
+
+print(id(new_social_data), id(social_data))
+
+{'linkedIn': 2000, 'fb': 1000, 'Instagram': 30000, 'X': 500}
+1684745783360 1684745938240
+
+
+###Question
+What will be the output of the following code?
+
+d= {'a': 1, 'b': 2, 'c': 3}
+for key in d:
+    print(key, end=” ”)
+
+Answer:
+a b c
+
+
+# IMP: Nested Dictoinary(Dictionary of Dictionary): here we keep a Key which Uniquely identifies a Product and the
+       value associated with that key is going to be another Dictionary
+        
+
+# Example of Nested Dictionary
+
+# Nested Dictionary
+product1 = { "name": "iPhone", "price": 1000, "company": "apple" }
+product2 = { "name": "Nexus", "price": 20000, "company": "google" }
+product3 = { "name": "Galaxy", "price": 15000, "company": "samsung" }
+
+# Creating a Nested Dict
+nested_dict = { "product1Id":product1, "product2Id":product2, "product3Id":product3 }
+print(nested_dict)
+
+{
+'product1Id': {'name': 'iPhone', 'price': 1000, 'company': 'apple'}, 
+'product2Id': {'name': 'Nexus', 'price': 20000, 'company': 'google'}, 
+'product3Id': {'name': 'Galaxy', 'price': 15000, 'company': 'samsung'}
+}
+
+
+###Question
+What will be the output of the following code?
+
+nested_dict = {'a': {'x': 1, 'y': 2}, 'b': {'x': 3, 'y': 4}}
+print(nested_dict['b']['x'])
+
+Answer:
+3
+
+
+###Question
+Find Duplicate characters in a given string 
+
+Answer:
+def duplicate_charac(inp):
+    freq_map = {} # Initialize empty dict
+    # Loop over the string 
+    for i in range(0, len(inp)):
+        # Check if the charac is already present
+        if inp[i] in freq_map:
+            freq_map[inp[i]] += 1
+        else:
+            freq_map[inp[i]] = 1
+    # Loop over the dict and check if value is greater than 1
+    for (key, value) in freq_map.items():
+        if value > 1:
+            print(key)
+
+duplicate_charac("combination")
+
+o
+i
+n
+
+
+###Question
+You are given an array of integers 'ARR' containing N elements. Each integer is in the range [1, N-1], 
+with exactly one element repeated in the array.
+
+Your task is to find the duplicate element. The duplicate element may be repeated more than twice in the error, 
+but there will be exactly one element that is repeated in the array.
+
+Note :
+
+All the integers in the array appear only once except for precisely one integer which appears two or more times.
+
+Answer:
+def find_duplicate(arr):
+    if len(arr) == 0:
+        return 0
+    ele_freq = {}
+    for i in range(0, len(arr)):
+        if arr[i] in ele_freq:
+            ele_freq[arr[i]] += 1
+        else:
+            ele_freq[arr[i]] = 1
+    for (key, value) in ele_freq.items():
+        if value > 1:
+            return key
+
+find_duplicate_res = find_duplicate([1, 2, 3, 4, 5, 2, 6])
+print(find_duplicate_res)
+
+2
+
+
+
+###Question
+In the Given Sentence print all the words which appears exactly K times
+
+Answer:
+def find_dup_words(sentence, occurence):
+    if len(sentence) == 0 or occurence == 0:
+        return 0
+    sen_li = sentence.split(" ")
+    word_frq = {}
+    for ele in sen_li:
+        if ele in word_frq:
+            word_frq[ele] += 1
+        else:
+            word_frq[ele] = 1
+    for (key, value) in word_frq.items():
+        if value == occurence:
+            print(key)
+
+find_dup_words("this is the example of is duplicate in the sen example", 2)
+
+is
+the
+example
+
+
+# IMP: the words "Listen" and "Silent" are anagrams. 
+
+# There length should be equal, there length of unique characters should be equal and the actual characters
+  and there values should be equal.
+
+###Question
+for the given strings check if they are anagrams or not.
+
+You have given two strings 'S' and 'T' of length 'N' and 'M' respectively.
+
+Return true if these strings form an anagram pair, else return false. The strings form an anagram pair if 
+letters of one string can be rearranged to form another string.
+
+Answer:
+def check_anagram(s1, s2):
+    if len(s1) == 0 or len(s2) == 0:
+        return False
+
+    # Check the length of strings
+    if len(s1) != len(s2):
+        return False
+
+    # Create freq dict
+    d1 = {}
+    for ele in s1:
+        if ele in d1:
+            d1[ele] += 1
+        else:
+            d1[ele] = 1
+    d2 = {}
+    for ele in s2:
+        if ele in d2:
+            d2[ele] += 1
+        else:
+            d2[ele] = 1
+
+    # check unique char
+    if len(d1.keys()) != len(d2.keys()):
+        return False
+
+    # check char and freq for d1 in d2
+    for pair in d1.items():
+        key = pair[0]
+        value = pair[1]
+        if key in d2 and d2[key] == value:
+            continue
+        else:
+            return False
+
+    return True
+
+check_anagram_res = check_anagram("silent", "listen")
+print(check_anagram_res)
+
+True
+
+
+###Question
+You have been given an integer array/list(ARR) of size N. Where N is equal to [2M + 1].
+
+Now, in the given array/list, 'M' numbers are present twice and one number is present only once.
+
+You need to find and return that number which is unique in the array/list.
+
+ Note:
+Unique element is always present in the array/list according to the given condition.
+
+Answer:
+def find_unique_element(arr):
+    # Write your code logic here using Dictionary !!
+    if len(arr) == 0:
+        return
+
+    uni_freq = {}
+    for ele in arr:
+        if ele in uni_freq:
+            uni_freq[ele] += 1
+        else:
+            uni_freq[ele] = 1
+    
+    for (key, value) in uni_freq.items():
+        if value == 1:
+            return key
+
+find_unique_element_res = find_unique_element([1, 3, 4, 5, 1, 2, 3, 4, 5])
+print(find_unique_element_res)
+
+2
+
+
+###Question
+Find Maximum frequency number
+
+You are given an array of integers that contain numbers in random order. Write a program to find and 
+return the number which occurs the maximum times in the given input.
+
+If two or more elements are having the maximum frequency, return the element which occurs in the array first.
+
+Answer:
+def maxfreq(arr):
+    if len(arr) == 0:
+        return None
+
+    uni_freq = {}
+    for ele in arr:
+        if ele in uni_freq:
+            uni_freq[ele] += 1
+        else:
+            uni_freq[ele] = 1
+    
+    max_freq = 0
+    max_element = None
+    
+    # Find element with maximum frequency
+    # We iterate through array to maintain order
+    for ele in arr:
+        if uni_freq[ele] > max_freq:
+            max_freq = uni_freq[ele]
+            max_element = ele
+            uni_freq[ele] = 1
+    
+    return max_element
+
+maxfreq_res = maxfreq([12, 2, 2, 12, 11, 12, 2, 1, 11, 12, 2, 6])
+print(maxfreq_res)
+
+12
+
+
+###Question
+Given an array/list of length ‘N’, you are supposed to return the majority element of the array/list.
+
+The majority element is the element that appears more than floor(N/2) times in the given array/list.
+
+Note:
+You may assume that the given array/list is non-empty and the majority element always exists in the array.
+
+Answer:
+def majority_element(arr):
+    if len(arr) == 0:
+        return
+    n = len(arr)
+    majority_count = n // 2
+    
+    # Count frequencies
+    freq = {}
+    for num in arr:
+        if num in freq:
+            freq[num] += 1
+        else:
+            freq[num] = 1
+        
+        # Return as soon as we find majority element
+        if freq[num] > majority_count:
+            return num
+
+majority_element_res = majority_element([4, 2, 1, 4, 4])
+print(majority_element_res)
+
+4
+
+
+###Question
+Your role at a data analytics company involves creating tools to analyze datasets efficiently. 
+Your task involves identifying a key within a dataset that has the highest number of unique values 
+associated with it. You need to write a Python function that accomplishes this task.
+
+Note :
+Return the key with the maximum unique values.
+
+Answer:
+def helper(test_dict):
+    if not test_dict:
+        return None
+    
+    max_unique_count = 0
+    result_key = None
+    
+    for key, values in test_dict.items():
+        # Count unique values using set
+        unique_count = len(set(values))
+        
+        if unique_count > max_unique_count:
+            max_unique_count = unique_count
+            result_key = key
+    
+    return result_key
+
+test_dict = {
+    'City': [1, 2, 3, 4],
+    'Temperature': [25, 26, 27, 28, 29],
+    'Population': [1000, 2000, 3000, 4000],
+    'GDP': [5000, 6000, 5000, 6000]
+}
+helper_res = helper(test_dict)
+print(helper_res)
+
+Temperature
+
+
+###Question
+You are given an array of size ‘N’. The elements of the array are in the range from 1 to ‘N’.
+
+Ideally, the array should contain elements from 1 to ‘N’. But due to some miscalculations, 
+there is a number R in the range [1, N] which appears in the array twice and another number M in the 
+range [1, N] which is missing from the array.
+
+Your task is to find the missing number (M) and the repeating number (R).
+
+Answer:
+def find_missing_and_repeating(arr):
+    if len(arr) == 0:
+        return
+    n = len(arr)
+    # Count frequency of each number
+    freq = {}
+    for num in arr:
+        if num in freq:
+            freq[num] += 1
+        else:
+            freq[num] = 1
+    
+    repeating = None
+    missing = None
+    
+    # Find repeating and missing
+    for i in range(1, n + 1):
+        if i in freq:
+            if freq[i] == 2:
+                repeating = i
+        else:
+            missing = i
+    
+    return [missing, repeating]
+
+find_missing_and_repeating_res = find_missing_and_repeating([4, 3, 2, 5, 2, 1])
+print(find_missing_and_repeating_res)
+
+[6, 2]

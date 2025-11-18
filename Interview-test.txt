@@ -1,0 +1,166 @@
+###Question
+Given a 2D integer array with n rows and m columns. Print the 0th row from input n times, 
+1st row n-1 times…..(n-1)th row will be printed 1 time.
+
+Answer:
+def print_pattern(arr):
+    if len(arr) == 0:
+        return
+
+    n = len(arr)
+
+    for i in range(n):
+        repeat = n - i
+
+        for _ in range(repeat):
+            print(*arr[i])
+
+n, m = map(int, input().split(" "))
+arr = [list(map(int, input().split(" "))) for _ in range(n)]
+print_pattern(arr)
+
+1 2 3
+1 2 3
+1 2 3
+4 5 6
+4 5 6
+7 8 9
+
+
+###Question
+Given a string S (that can contain multiple words), you need to find the word which has minimum length.
+
+Note : If multiple words are of same length, then answer will be first minimum length word in the string. 
+Words are seperated by single space only.
+
+Answer:
+## Read input as specified in the question.
+## Print output as specified in the question.
+def check_min_word(sen):
+    words_arr = sen.split(" ")
+
+    min_word = words_arr[0]
+
+    for w in words_arr:
+        if len(w) < len(min_word):
+            min_word = w
+
+    return min_word
+
+n = input()
+
+check_min_word_res = check_min_word(n)
+print(check_min_word_res)
+
+ this is the example
+is
+
+
+###Question
+Given an integer array A of size n. Find and print all the leaders present in the input array. 
+An array element A[i] is called Leader, if all the elements following it (i.e. present at its right) are 
+less than or equal to A[i].
+
+Print all the leader elements separated by space and in the same order they are present in the input array.
+
+Answer:
+## Read input as specified in the question.
+## Print output as specified in the question.
+def print_leader(arr):
+    if len(arr) == 0:
+        return
+    
+    n = len(arr)
+    leaders = []
+
+    max_from_right = arr[-1]
+    leaders.append(max_from_right)
+
+    # Traverse from second last to First
+    for i in range(n-2, -1, -1):
+        if arr[i] >= max_from_right:
+            leaders.append(arr[i])
+            max_from_right = arr[i]
+
+    # leaders are stored in reverse order so we need to reverse them again
+    leaders.reverse()
+
+    print(*leaders)
+
+arr = list(map(int, input().split(" ")))
+print_leader(arr)
+
+ 1 2 17 5 6 7 4
+17 7 4
+
+
+###Question
+Write as you speak is a special sequence of strings that starts with string “1” and after one iteration you rewrite the sequence as whatever you speak.
+
+Example :
+The first few iterations of the sequence are :
+First iteration: “1”
+    As we are starting with one.
+
+Second iteration: “11”
+    We speak “1” as   “one 1” then we write it as “11”
+
+Third iteration: “21”
+    We speak “11” as “Two 1” then we write it as “21”
+
+Fourth iteration: “1211”
+    We speak “21” as “one 2, one 1”  then we write it as “1211”
+
+Fifth iteration: “111221”
+    We speak “1211” as “one 1, one 2, two 1” then we write it as “111221”
+
+Sixth iteration: “312211”
+    We speak “111221” as “three 1, two 2, one 1” then we write it as “312211”
+You will be given a single positive integer N, Your task is to write the sequence after N iterations.
+
+Answer:
+def writeAsYouSpeak(n):
+    """
+    Generates the Nth term of the 'Write as you speak' (Look-and-Say) sequence.
+    
+    Args:
+        n (int): The iteration number (1-based).
+        
+    Returns:
+        str: The sequence string for the Nth iteration.
+    """
+    # Base case: The first term is always "1"
+    if n == 1:
+        return "1"
+    
+    # Start with the first term
+    current_term = "1"
+    
+    # Iterate from 2 up to n to generate subsequent terms
+    for _ in range(n - 1):
+        next_term = []
+        count = 1
+        
+        # Traverse the current string
+        for i in range(len(current_term)):
+            # If we are at the last character OR the next character is different
+            if i == len(current_term) - 1 or current_term[i] != current_term[i+1]:
+                # Append the count and the digit to the list
+                next_term.append(str(count))
+                next_term.append(current_term[i])
+                # Reset count for the next group of digits
+                count = 1
+            else:
+                # If the next character is the same, increase the count
+                count += 1
+        
+        # Join the list to form the string for this iteration
+        current_term = "".join(next_term)
+        
+    return current_term
+
+n = int(input())
+print(writeAsYouSpeak(n))
+
+ 4
+1211
